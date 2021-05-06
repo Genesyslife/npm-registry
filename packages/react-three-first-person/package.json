@@ -1,0 +1,22 @@
+{
+  "name": "@Genesyslife/react-three-first-person",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Genesyslife/npm-registry.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Genesyslife/npm-registry/issues"
+  },
+  "homepage": "https://github.com/Genesyslife/npm-registry#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+}
