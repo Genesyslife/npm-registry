@@ -1,5 +1,7 @@
 import React from "react";
 
+import Frame from "./components/Frame";
+
 export default function VideoPlayer() {
-  return <div>Video Player</div>;
+  return <Frame />;
 }
