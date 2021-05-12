@@ -1,10 +1,18 @@
 {
+  "name": "npm-registry",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install",
     "lint": "eslint ./{packages,docs} --ext js,jsx",
-    "format": "prettier --write --ignore-unknown ."
+    "format": "prettier --write --ignore-unknown .",
+    "install:docs": "npm --prefix=docs install",
+    "install:packages": "lerna bootstrap --ignore-prepublish -- --no-package-lock",
+    "postinstall": "run-s install:*",
+    "develop:docs": "npm --prefix=docs run storybook",
+    "develop:packages": "lerna run develop --stream",
+    "develop": "run-p develop:*",
+    "cleanup": "git clean -fdx"
   },
   "dependencies": {
     "react": "16.14.0",
@@ -18,7 +26,9 @@
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-react": "7.23.2",
     "husky": "6.0.0",
+    "lerna": "^4.0.0",
     "lint-staged": "10.5.4",
+    "npm-run-all": "4.1.5",
     "prettier": "2.2.1"
   }
 }
