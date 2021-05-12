@@ -1,0 +1,24 @@
+{
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install",
+    "lint": "eslint ./{packages,docs} --ext js,jsx",
+    "format": "prettier --write --ignore-unknown ."
+  },
+  "dependencies": {
+    "react": "16.14.0",
+    "react-dom": "16.14.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.14.2",
+    "@commitlint/cli": "12.1.1",
+    "babel-loader": "8.2.2",
+    "eslint": "7.25.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-react": "7.23.2",
+    "husky": "6.0.0",
+    "lint-staged": "10.5.4",
+    "prettier": "2.2.1"
+  }
+}
