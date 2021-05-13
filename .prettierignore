@@ -1,5 +1,5 @@
-# Ignore
+node_modules/
+storybook-static/
+lib/
 
-.next
-node_modules
 *.md

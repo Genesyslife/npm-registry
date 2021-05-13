@@ -120,3 +120,6 @@ dist
 
 # Packages
 lib/
+
+# Storybook
+storybook-static/

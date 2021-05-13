@@ -12,6 +12,9 @@
     "develop:docs": "npm --prefix=docs run storybook",
     "develop:packages": "lerna run develop --stream",
     "develop": "run-p develop:*",
+    "build:docs": "npm --prefix=docs run build-storybook",
+    "build:packages": "lerna run build",
+    "build": "run-s build:packages build:docs",
     "cleanup": "git clean -fdx"
   },
   "dependencies": {
