@@ -2,6 +2,7 @@ import postcss from "rollup-plugin-postcss";
 import autoprefixer from "autoprefixer";
 import eslint from "@rollup/plugin-eslint";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
 import { babel } from "@rollup/plugin-babel";
 import analyze from "rollup-plugin-analyzer";
 
@@ -13,9 +14,8 @@ export default {
     exports: "default",
     strict: false,
   },
-  external: ["react", "react-dom"],
+  external: ["react", "react-dom", "three"],
   plugins: [
-    nodeResolve({ preferBuiltins: true }),
     postcss({
       extract: false,
       modules: true,
@@ -32,6 +32,8 @@ export default {
       babelHelpers: "bundled",
       exclude: "node_modules/**",
     }),
+    commonjs(),
+    nodeResolve({ preferBuiltins: true }),
     analyze(),
   ],
 };

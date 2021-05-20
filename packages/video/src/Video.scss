@@ -1,0 +1,22 @@
+.g-video {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  height: 100vh !important;
+}
+
+.safari-video {
+  position: absolute;
+  top: var(--layout-menu-height);
+  bottom: calc(var(--layout-menu-height));
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.safari-video video {
+  width: 90%;
+  max-height: 80%;
+}

@@ -1,0 +1,28 @@
+.loader-content {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+}
+
+.loader-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.loader-text {
+  transform: scale(0.6);
+}
+
+.loader-center-screen {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
