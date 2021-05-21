@@ -3,7 +3,6 @@ import AudioSpectrum from "react-audio-spectrum";
 import { isSafari } from "react-device-detect";
 import TrackSlider from "./components/TrackSlider";
 import Layout from "./components/Layout";
-// import Loader from './components/Loader'
 import styles from "./AudioVisualizer.scss";
 
 const meterColor = [

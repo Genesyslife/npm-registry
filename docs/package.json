@@ -8,15 +8,13 @@
   "dependencies": {
     "@Genesys/audio-visualizer": "file:../packages/audio-visualizer",
     "@Genesys/video": "file:../packages/video",
-    "react": "file:../node_modules/react",
-    "react-dom": "file:../node_modules/react-dom",
-    "three": "file:../node_modules/three"
-  },
-  "devDependencies": {
     "@storybook/addon-actions": "6.2.9",
     "@storybook/addon-essentials": "6.2.9",
     "@storybook/addon-links": "6.2.9",
     "@storybook/react": "6.2.9",
-    "storybook-dark-mode": "1.0.8"
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
+    "storybook-dark-mode": "1.0.8",
+    "three": "0.128.0"
   }
 }

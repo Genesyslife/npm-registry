@@ -16,8 +16,8 @@
     "registry": "https://npm.pkg.github.com"
   },
   "peerDependencies": {
-    "react": ">=16.40.0",
-    "react-dom": ">=16.40.0",
+    "react": ">=16.14.0",
+    "react-dom": ">=16.14.0",
     "three": ">=0.128.0"
   },
   "devDependencies": {

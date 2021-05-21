@@ -1,17 +1,17 @@
 import React, {
-  Suspense,
+  // Suspense,
   useCallback,
   useEffect,
-  useMemo,
+  // useMemo,
   useRef,
   useState,
 } from "react";
-import * as THREE from "three";
-import { Canvas } from "react-three-fiber";
-import { OrbitControls, Plane, Html } from "@react-three/drei";
+// import {VideoTexture, LinearFilter, DoubleSide} from "three";
+// import { Canvas } from "react-three-fiber";
+// import { OrbitControls, Plane, Html } from "@react-three/drei";
 import { isMobileSafari } from "react-device-detect";
 import TrackSlider from "./components/TrackSlider";
-import styles from "./Video.scss";
+// import styles from "./Video.scss";
 
 const SafariFallback = ({ video, loading }) => {
   const divVideo = useRef(null);
@@ -24,57 +24,61 @@ const SafariFallback = ({ video, loading }) => {
 
   // if (loading) return <Loader centerScreen />
   if (loading) return <div>Loading…</div>;
-  return <div ref={divVideo} className={styles["safari-video"]} />;
+  // return <div ref={divVideo} className={styles["safari-video"]} />;
+
+  return null;
 };
 
-const Video3d = ({ video, sizes, loading }) => {
-  const texture = useMemo(() => {
-    const videoElement = video.current;
-    if (!videoElement) return false;
+const Video3d = (/* { video, sizes, loading } */) => {
+  // const texture = useMemo(() => {
+  //   const videoElement = video.current;
+  //   if (!videoElement) return false;
 
-    const newTexture = new THREE.VideoTexture(videoElement);
-    newTexture.minFilter = THREE.LinearFilter;
-    newTexture.magFilter = THREE.LinearFilter;
+  //   const newTexture = new VideoTexture(videoElement);
+  //   newTexture.minFilter = LinearFilter;
+  //   newTexture.magFilter = LinearFilter;
 
-    return newTexture;
-  }, [video]);
+  //   return newTexture;
+  // }, [video]);
 
-  return (
-    <Suspense fallback={null}>
-      <Canvas
-        id="canvas-video"
-        className={styles["g-video"]}
-        camera={{ aspect: window.innerWidth / window.innerHeight }}
-      >
-        <OrbitControls
-          minPolarAngle={0.5}
-          maxPolarAngle={2.5}
-          minAzimuthAngle={-Math.PI * 0.4}
-          maxAzimuthAngle={Math.PI * 0.4}
-          rotateSpeed={0.2}
-          zoomSpeed={0.2}
-          minDistance={1}
-          maxDistance={5}
-        />
-        {texture && (
-          <Plane args={[...sizes, 0.1]} rotate={[0, 1, 0]}>
-            <meshBasicMaterial
-              side={THREE.DoubleSide}
-              attach="material"
-              map={texture}
-              color="#fff"
-            ></meshBasicMaterial>
-          </Plane>
-        )}
-        {loading && (
-          <Html center>
-            {/* <Loader /> */}
-            <div>Loading…</div>
-          </Html>
-        )}
-      </Canvas>
-    </Suspense>
-  );
+  return null;
+
+  // return (
+  //   <Suspense fallback={null}>
+  //     <Canvas
+  //       id="canvas-video"
+  //       className={styles["g-video"]}
+  //       camera={{ aspect: window.innerWidth / window.innerHeight }}
+  //     >
+  //       <OrbitControls
+  //         minPolarAngle={0.5}
+  //         maxPolarAngle={2.5}
+  //         minAzimuthAngle={-Math.PI * 0.4}
+  //         maxAzimuthAngle={Math.PI * 0.4}
+  //         rotateSpeed={0.2}
+  //         zoomSpeed={0.2}
+  //         minDistance={1}
+  //         maxDistance={5}
+  //       />
+  //       {texture && (
+  //         <Plane args={[...sizes, 0.1]} rotate={[0, 1, 0]}>
+  //           <meshBasicMaterial
+  //             side={DoubleSide}
+  //             attach="material"
+  //             map={texture}
+  //             color="#fff"
+  //           ></meshBasicMaterial>
+  //         </Plane>
+  //       )}
+  //       {loading && (
+  //         <Html center>
+  //           {/* <Loader /> */}
+  //           <div>Loading…</div>
+  //         </Html>
+  //       )}
+  //     </Canvas>
+  //   </Suspense>
+  // );
 };
 
 export default function Video({ src, artist = {}, sizes = [] }) {
