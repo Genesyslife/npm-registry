@@ -1,0 +1,24 @@
+.g-spectrum-wrap {
+  display: flex;
+  justify-content: center;
+  padding-top: 2vh;
+}
+
+.g-spectrum-wrap audio {
+  visibility: hidden;
+}
+
+/* .audio-visualizer {
+  visibility: hidden;
+} */
+
+.g-header-spacer {
+  width: 2rem;
+}
+
+.g-audio-loader {
+  position: absolute;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}

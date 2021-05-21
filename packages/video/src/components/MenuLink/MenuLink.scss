@@ -1,0 +1,30 @@
+.g-menu-txt {
+  font-family: "ALS Gorizont Expanded", Helvetica, sans-serif;
+  font-size: 1.35rem;
+  line-height: 1.5rem;
+  text-transform: uppercase;
+  color: rgba(218, 218, 218, 0.9);
+  opacity: 0.5;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+.g-menu-active,
+.g-menu-txt:active {
+  opacity: 1;
+}
+
+@media (hover: hover) {
+  .g-menu-txt:hover {
+    opacity: 1;
+  }
+}
+
+@media (orientation: portrait) {
+  .g-menu-txt {
+    font-size: clamp(1rem, 1.4rem, 4.4vw);
+  }
+}

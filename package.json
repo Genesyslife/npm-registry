@@ -7,11 +7,11 @@
     "lint": "eslint ./{packages,docs} --ext js,jsx",
     "format": "prettier --write --ignore-unknown .",
     "install:docs": "npm --prefix=docs install",
-    "install:packages": "lerna bootstrap --ignore-prepublish -- --no-package-lock",
+    "install:packages": "lerna bootstrap --ignore-prepublish -- --no-package-lock --legacy-peer-deps",
     "postinstall": "run-s install:*",
     "develop:docs": "npm --prefix=docs run storybook",
     "develop:packages": "lerna run develop --stream",
-    "develop": "run-p develop:*",
+    "develop": "run-s build:packages && run-p develop:*",
     "build:docs": "npm --prefix=docs run build-storybook",
     "build:packages": "lerna run build",
     "build": "run-s build:packages build:docs",
@@ -19,7 +19,8 @@
   },
   "dependencies": {
     "react": "16.14.0",
-    "react-dom": "16.14.0"
+    "react-dom": "16.14.0",
+    "three": "0.128.0"
   },
   "devDependencies": {
     "@babel/core": "7.14.2",

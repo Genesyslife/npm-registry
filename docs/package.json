@@ -6,15 +6,17 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@Genesys/audio-player": "file:../packages/audio-player",
-    "@Genesys/video-player": "file:../packages/video-player",
+    "@Genesys/audio-visualizer": "file:../packages/audio-visualizer",
+    "@Genesys/video": "file:../packages/video",
     "react": "file:../node_modules/react",
-    "react-dom": "file:../node_modules/react-dom"
+    "react-dom": "file:../node_modules/react-dom",
+    "three": "file:../node_modules/three"
   },
   "devDependencies": {
     "@storybook/addon-actions": "6.2.9",
     "@storybook/addon-essentials": "6.2.9",
     "@storybook/addon-links": "6.2.9",
-    "@storybook/react": "6.2.9"
+    "@storybook/react": "6.2.9",
+    "storybook-dark-mode": "1.0.8"
   }
 }

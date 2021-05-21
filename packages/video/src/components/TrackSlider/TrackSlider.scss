@@ -1,0 +1,116 @@
+.g-track-slider {
+  display: flex;
+  position: fixed;
+  right: 2rem;
+  top: 2rem;
+  width: 50vw;
+  align-items: flex-start;
+  padding-right: 10vw;
+  z-index: 999;
+}
+
+.g-slider-container {
+  display: flex;
+  flex: 1;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.g-slider-container .g-menu-txt {
+  width: 4rem;
+}
+
+.g-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: rgb(255, 255, 255);
+  border-radius: 1.5px;
+  outline: none;
+  opacity: 0.5;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  margin: 8px 8px 0 8px;
+  width: 60%;
+}
+
+.g-slider:active {
+  opacity: 1;
+}
+
+@media (hover: hover) {
+  .g-slider:hover {
+    opacity: 1;
+  }
+}
+
+.g-slider-btns {
+  display: flex;
+  margin-left: 2rem;
+}
+
+.g-slider-btns > * {
+  padding-right: 2rem;
+}
+
+.g-slider-toggle {
+  width: 4rem;
+}
+
+/*
+ * The slider handle (use -webkit- (Chrome, Opera, Safari, Edge)
+ * and -moz- (Firefox) to override default look)
+ */
+.g-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 6px;
+  height: 20px;
+  border-radius: 3px;
+  background: rgba(236, 44, 116, 1);
+  cursor: pointer;
+}
+
+.g-slider::-moz-range-thumb {
+  width: 6px;
+  height: 20px;
+  border-radius: 3px;
+  background: rgba(236, 44, 116, 1);
+  cursor: pointer;
+}
+
+.g-slider-volumes {
+  display: flex;
+}
+
+@media only screen and (max-width: 900px) {
+  .g-track-slider {
+    top: calc(1.35rem * 3);
+    width: 100vw;
+    left: 0;
+    right: 0;
+    padding: 0 2rem;
+    flex-direction: column;
+  }
+
+  .g-slider-container {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .g-slider-container :last-child {
+    text-align: right;
+  }
+
+  .g-slider-btns {
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .g-slider-btns > p {
+    padding-right: 0;
+    width: unset;
+  }
+}
