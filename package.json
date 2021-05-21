@@ -6,21 +6,18 @@
     "prepare": "husky install",
     "lint": "eslint ./{packages,docs} --ext js,jsx",
     "format": "prettier --write --ignore-unknown .",
-    "install:docs": "npm --prefix=docs install",
-    "install:packages": "lerna bootstrap --ignore-prepublish -- --no-package-lock --legacy-peer-deps",
-    "postinstall": "run-s install:*",
+    "install:docs": "npm --prefix=docs install --no-package-lock",
+    "install:packages": "lerna bootstrap -- --no-package-lock --omit \"peer\"",
+    "postinstall": "run-s install:packages install:docs",
     "develop:docs": "npm --prefix=docs run storybook",
     "develop:packages": "lerna run develop --stream",
-    "develop": "run-s build:packages && run-p develop:*",
+    "develop": "npm-run-all --serial build:packages --parallel develop:*",
     "build:docs": "npm --prefix=docs run build-storybook",
     "build:packages": "lerna run build",
     "build": "run-s build:packages build:docs",
+    "release:version": "lerna version --no-push --no-git-tag-version",
+    "release:publish": "lerna publish from-package --no-git-tag-version",
     "cleanup": "git clean -fdx"
-  },
-  "dependencies": {
-    "react": "16.14.0",
-    "react-dom": "16.14.0",
-    "three": "0.128.0"
   },
   "devDependencies": {
     "@babel/core": "7.14.2",

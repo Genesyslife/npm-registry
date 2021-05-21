@@ -1,6 +1,7 @@
 import React from "react";
-import Scrollbars from "react-custom-scrollbars";
 import styles from "./Layout.scss";
+
+const Scrollbars = ({ children }) => children;
 
 const Layout = ({ children, className }) => {
   return (

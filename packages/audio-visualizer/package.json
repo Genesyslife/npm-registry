@@ -16,9 +16,9 @@
     "registry": "https://npm.pkg.github.com"
   },
   "peerDependencies": {
-    "react": "file:../node_modules/react",
-    "react-dom": "file:../node_modules/react-dom",
-    "three": "file:../node_modules/three"
+    "react": ">=16.14.0",
+    "react-dom": ">=16.14.0",
+    "three": ">=0.128.0"
   },
   "devDependencies": {
     "@babel/core": "7.14.0",
@@ -39,10 +39,9 @@
     "rollup-plugin-postcss": "4.0.0"
   },
   "dependencies": {
+    "@react-three/drei": "5.1.3",
     "classnames": "2.3.1",
-    "drei": "2.2.21",
     "react-audio-spectrum": "0.1.0",
-    "react-custom-scrollbars": "4.2.1",
     "react-device-detect": "1.17.0",
     "react-router-dom": "5.2.0",
     "react-spinners": "0.10.6"
