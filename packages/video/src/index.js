@@ -8,7 +8,7 @@ import React, {
 } from "react";
 import * as THREE from "three";
 import { Canvas } from "react-three-fiber";
-import { OrbitControls, Plane, Html } from "drei";
+import { OrbitControls, Plane, Html } from "@react-three/drei";
 import { isMobileSafari } from "react-device-detect";
 import TrackSlider from "./components/TrackSlider";
 import styles from "./Video.scss";

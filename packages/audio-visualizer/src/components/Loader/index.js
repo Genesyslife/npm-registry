@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { useProgress } from "drei";
+import { useProgress } from "@react-three/drei";
 // import BarLoader from 'react-spinners/BarLoader'
 import classNames from "classnames";
 import BlurText from "../BlurText";
