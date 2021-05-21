@@ -7,7 +7,7 @@ import React, {
   useState,
 } from "react";
 // import {VideoTexture, LinearFilter, DoubleSide} from "three";
-// import { Canvas } from "react-three-fiber";
+// import { Canvas } from "@react-three/fiber";
 // import { OrbitControls, Plane, Html } from "@react-three/drei";
 import { isMobileSafari } from "react-device-detect";
 import TrackSlider from "./components/TrackSlider";
