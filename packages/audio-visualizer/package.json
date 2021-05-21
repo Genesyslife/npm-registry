@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "authors": [
     "Dylson Valente Neto <ama@n370.info> (https://n370.info/)",
-    "Guilherme Gutierres Gallo (https://github.com/guigallo)"
+    "Guilherme Gutierres Gallo <guilherme.gg1@hotmail.com> (https://github.com/guigallo)"
   ],
   "main": "./lib/index.js",
   "scripts": {
