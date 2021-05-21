@@ -17,7 +17,7 @@
     "build": "run-s build:packages build:docs",
     "release:version": "lerna version --no-push --no-git-tag-version",
     "release:publish": "lerna publish from-package --no-git-tag-version",
-    "cleanup": "git clean -fdx -e .npmrc"
+    "cleanup": "git clean -fdx"
   },
   "devDependencies": {
     "@babel/core": "7.14.2",
