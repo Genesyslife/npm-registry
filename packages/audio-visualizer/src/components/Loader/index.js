@@ -3,7 +3,7 @@ import { useProgress } from "@react-three/drei";
 // import BarLoader from 'react-spinners/BarLoader'
 import classNames from "classnames";
 import BlurText from "../BlurText";
-import styles from "./Loader.scss";
+import styles from "./Loader.module.scss";
 
 const audios = {
   "XIAO QUAN": {

@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
-import styles from "./MenuLink.scss";
+import styles from "./MenuLink.module.scss";
 
 const LinkOrP = ({ to, children, active, disableLink, ...props }) => {
   if (active || !to || disableLink) {

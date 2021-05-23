@@ -2,8 +2,7 @@ import React, { useEffect, useState, useRef, useCallback } from "react";
 import AudioSpectrum from "react-audio-spectrum";
 import { isSafari } from "react-device-detect";
 import TrackSlider from "./components/TrackSlider";
-import Layout from "./components/Layout";
-import styles from "./AudioVisualizer.scss";
+import styles from "./AudioVisualizer.module.scss";
 
 const meterColor = [
   { stop: 0, color: "transparent" },
@@ -13,7 +12,7 @@ const meterColor = [
 const menuVH = 25;
 const spectrumPercent = (100 - menuVH * 2) / 100;
 
-export default function AudioVisualizer({ id = 1, src, artist = {} }) {
+export default function AudioVisualizer({ id = 1, src }) {
   const [height, setHeight] = useState(0);
   const [width, setWidth] = useState(0);
   const audioPlayer = useRef(null);
@@ -90,7 +89,7 @@ export default function AudioVisualizer({ id = 1, src, artist = {} }) {
   }, [audioPlayer, canPlay]);
 
   return (
-    <Layout>
+    <>
       <div className={styles["g-spectrum-wrap"]}>
         <audio
           crossOrigin="anonymous"
@@ -140,9 +139,9 @@ export default function AudioVisualizer({ id = 1, src, artist = {} }) {
           onTogglePlay={onTogglePlay}
           onSeeking={onSeeking}
           onSeeked={onSeeked}
-          artist={artist}
+          artist={{}}
         />
       </div>
-    </Layout>
+    </>
   );
 }

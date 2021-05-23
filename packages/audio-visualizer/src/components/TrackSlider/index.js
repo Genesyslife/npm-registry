@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import MenuLink from "../MenuLink";
-import styles from "./TrackSlider.scss";
+import styles from "./TrackSlider.module.scss";
 
 const toMMSS = (secondsRaw) => {
   var secs = parseInt(secondsRaw, 10);

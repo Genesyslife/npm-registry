@@ -1,6 +1,6 @@
 import React from "react";
 import { default as classNames } from "classnames";
-import styles from "./BlurText.scss";
+import styles from "./BlurText.module.scss";
 
 const BlurText = ({ children, hovered, active }) => {
   return (

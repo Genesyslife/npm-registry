@@ -17,8 +17,10 @@ export default {
   external: ["react", "react-dom", "three"],
   plugins: [
     postcss({
-      extract: false,
-      modules: true,
+      autoModules: true,
+      modules: {
+        hashPrefix: "__audio-visualizer__",
+      },
       minimize: true,
       use: ["sass"],
       plugins: [
