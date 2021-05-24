@@ -9,7 +9,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c ./rollup.config.js",
-    "develop": "npm run build -- --watch"
+    "develop": "npm run build -- --watch",
+    "prepare": "npm run build"
   },
   "repository": "git://github.com/Genesyslife/npm-registry.git",
   "publishConfig": {
