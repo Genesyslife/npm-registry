@@ -1,4 +1,7 @@
 *.json
+*.md
 *.scss
+.github/
+public/
 storybook-static/
 lib/
