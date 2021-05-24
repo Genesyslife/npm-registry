@@ -36,7 +36,8 @@
     "postcss": "8.2.15",
     "rollup": "2.47.0",
     "rollup-plugin-analyzer": "4.0.0",
-    "rollup-plugin-postcss": "4.0.0"
+    "rollup-plugin-postcss": "4.0.0",
+    "uuid": "3.4.0"
   },
   "dependencies": {
     "@react-three/drei": "5.1.3",

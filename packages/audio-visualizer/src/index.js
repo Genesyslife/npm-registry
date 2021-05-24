@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef, useCallback } from "react";
 import AudioSpectrum from "react-audio-spectrum";
 import { isSafari } from "react-device-detect";
 import TrackSlider from "./components/TrackSlider";
-import styles from "./AudioVisualizer.module.scss";
 
 const meterColor = [
   { stop: 0, color: "transparent" },
@@ -12,7 +11,7 @@ const meterColor = [
 const menuVH = 25;
 const spectrumPercent = (100 - menuVH * 2) / 100;
 
-export default function AudioVisualizer({ id = 1, src }) {
+export default function AudioVisualizer({ id = 1, src, color }) {
   const [height, setHeight] = useState(0);
   const [width, setWidth] = useState(0);
   const audioPlayer = useRef(null);
@@ -20,8 +19,6 @@ export default function AudioVisualizer({ id = 1, src }) {
   const [seeking, setSeeking] = useState(false);
   const [duration, setDuration] = useState(0);
   const [playing, setPlaying] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const [canPlay, setCanplay] = useState(false);
 
   const onTogglePlay = useCallback(() => {
     const element = audioPlayer.current;
@@ -49,7 +46,7 @@ export default function AudioVisualizer({ id = 1, src }) {
   }, [audioPlayer]);
 
   useEffect(() => {
-    setWidth(Math.ceil((window.innerWidth * 0.7) / 20) * 20);
+    setWidth(window.innerWidth * 0.8);
     setHeight(window.innerHeight * spectrumPercent);
   }, []);
 
@@ -71,77 +68,50 @@ export default function AudioVisualizer({ id = 1, src }) {
     }
   };
 
-  useEffect(() => {
-    audioPlayer.current.crossOrigin = "anonymous";
-
-    audioPlayer.current
-      .play()
-      .catch(() => console.warn("failed to play audioPlayer background"));
-  }, [audioPlayer]);
-
-  useEffect(() => {
-    if (canPlay) {
-      audioPlayer.current.crossOrigin = "anonymous";
-      audioPlayer.current
-        .play()
-        .catch(() => console.warn("failed to play audioPlayer background"));
-    }
-  }, [audioPlayer, canPlay]);
-
   return (
     <>
-      <div className={styles["g-spectrum-wrap"]}>
-        <audio
-          crossOrigin="anonymous"
-          autoPlay={false}
-          muted={false}
-          ref={audioPlayer}
-          id={`audio-${id}`}
-          onCanPlay={() => setCanplay(true)}
-          onPlay={() => setPlaying(true)}
-          onPause={() => setPlaying(false)}
-          onTimeUpdate={(e) => setCurrentTime(e?.target?.currentTime)}
-          onDurationChange={(e) => setDuration(e?.target?.duration)}
-          onLoadStart={() => setLoading(true)}
-          onPlaying={() => setLoading(false)}
-        >
-          <source src={src} />
-        </audio>
+      <audio
+        crossOrigin="anonymous"
+        autoPlay={false}
+        muted={false}
+        ref={audioPlayer}
+        id={`audio-${id}`}
+        onCanPlay={() => {}}
+        onPlay={() => setPlaying(true)}
+        onPause={() => setPlaying(false)}
+        onTimeUpdate={(e) => setCurrentTime(e?.target?.currentTime)}
+        onDurationChange={(e) => setDuration(e?.target?.duration)}
+        onLoadStart={() => {}}
+        onPlaying={() => {}}
+      >
+        <source src={src} />
+      </audio>
+      <TrackSlider
+        currentTime={currentTime}
+        duration={duration}
+        playing={playing || seeking}
+        onVolumeUp={onVolumeUp}
+        onVolumeDown={onVolumeDown}
+        onTogglePlay={onTogglePlay}
+        onSeeking={onSeeking}
+        onSeeked={onSeeked}
+        artist={{}}
+      />
 
-        {!isSafari && (
-          <AudioSpectrum
-            id={`spectrum-${id}`}
-            height={height}
-            width={width}
-            audioId={`audio-${id}`}
-            capColor="rgba(177,1,90,1)"
-            capHeight={10}
-            meterWidth={20}
-            meterCount={512}
-            meterColor={meterColor}
-            gap={0}
-          />
-        )}
-
-        {loading && (
-          <div className={styles["g-audio-loader"]}>
-            {/* <Loader /> */}
-            Loading…
-          </div>
-        )}
-
-        <TrackSlider
-          currentTime={currentTime}
-          duration={duration}
-          playing={playing || seeking}
-          onVolumeUp={onVolumeUp}
-          onVolumeDown={onVolumeDown}
-          onTogglePlay={onTogglePlay}
-          onSeeking={onSeeking}
-          onSeeked={onSeeked}
-          artist={{}}
+      {!isSafari && (
+        <AudioSpectrum
+          id={`spectrum-${src}`}
+          height={height}
+          width={width}
+          audioId={`audio-${id}`}
+          capColor={color}
+          capHeight={10}
+          meterWidth={20}
+          meterCount={512}
+          meterColor={meterColor}
+          gap={0}
         />
-      </div>
+      )}
     </>
   );
 }

@@ -43,6 +43,7 @@
     "@react-three/fiber": "6.1.5",
     "classnames": "2.3.1",
     "react-device-detect": "1.17.0",
-    "react-router-dom": "5.2.0"
+    "react-router-dom": "5.2.0",
+    "uuid": "3.4.0"
   }
 }

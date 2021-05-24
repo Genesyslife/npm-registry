@@ -5,6 +5,7 @@ import { nodeResolve } from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import { babel } from "@rollup/plugin-babel";
 import analyze from "rollup-plugin-analyzer";
+import { v4 as uuid } from "uuid";
 
 export default {
   input: "src/index.js",
@@ -17,9 +18,10 @@ export default {
   external: ["react", "react-dom", "three"],
   plugins: [
     postcss({
-      autoModules: true,
       modules: {
-        hashPrefix: "__audio-visualizer__",
+        generateScopedName(name) {
+          return `${name}_${uuid().split("-")[0]}`;
+        },
       },
       minimize: true,
       use: ["sass"],
