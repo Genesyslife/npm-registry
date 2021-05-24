@@ -1,15 +1,16 @@
 {
   "name": "@Genesyslife/audio-visualizer",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "authors": [
     "Dylson Valente Neto <ama@n370.info> (https://n370.info/)",
-    "Guilherme Gutierres Gallo (https://github.com/guigallo)"
+    "Guilherme Gutierres Gallo <guilherme.gg1@hotmail.com> (https://github.com/guigallo)"
   ],
   "main": "./lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c ./rollup.config.js",
-    "develop": "npm run build -- --watch"
+    "develop": "npm run build -- --watch",
+    "prepare": "npm run build"
   },
   "repository": "git://github.com/Genesyslife/npm-registry.git",
   "publishConfig": {
@@ -36,7 +37,8 @@
     "postcss": "8.2.15",
     "rollup": "2.47.0",
     "rollup-plugin-analyzer": "4.0.0",
-    "rollup-plugin-postcss": "4.0.0"
+    "rollup-plugin-postcss": "4.0.0",
+    "uuid": "3.4.0"
   },
   "dependencies": {
     "@react-three/drei": "5.1.3",
