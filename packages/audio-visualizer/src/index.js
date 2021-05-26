@@ -127,4 +127,4 @@ export default function AudioVisualizer({
     </>
   );
 }
-AudioVisualizer.TrackSlider = AudioVisualizer;
+AudioVisualizer.TrackSlider = TrackSlider;
