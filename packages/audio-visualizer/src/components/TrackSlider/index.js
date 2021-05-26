@@ -28,11 +28,11 @@ const TrackSlider = ({
   onSeeking,
   onSeeked,
   artist = {},
-  color = '#00ff2a',
+  color = "#00ff2a",
   hideTime = false,
   hideVolume = false,
-  playButton = 'Play',
-  pauseButton = 'Pause',
+  playButton = "Play",
+  pauseButton = "Pause",
 }) => {
   const [hovered, setHovered] = useState(false);
 
@@ -59,7 +59,7 @@ const TrackSlider = ({
             onSeeked(e.target.value);
             setHovered(false);
           }}
-          {...{ 'data-color': color }}
+          {...{ "data-color": color }}
         />
         {!hideTime && (
           <MenuLink disableLink active={hovered}>
