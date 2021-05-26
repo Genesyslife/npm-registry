@@ -38,25 +38,25 @@ npm i && npm run develop
 
 ### Publishing a package to the registry
 
-Make sure you have no uncommitted changes in your working tree and change into the package folder.
+#### Publishing a package is a two step process
+
+> Make sure you have no uncommitted changes in your working tree and then run the following commands from the project root folder.
 
 ```sh
-cd packages/video
-```
 
-#### Publishing a package is a two step process
+```
 
 1. Bump the package version according to the [semver](https://semver.org/) spec using the custom `release:version` script. You can pass any valid [npm-version](https://docs.npmjs.com/cli/v7/commands/npm-version) argument to it.
 
     ```sh
-    npm run release:version patch
+    npm --prefix=packages/video run release:version patch
     ```
 
 2. Commit the changes automatically made to your package files, push them and publish the new package version using the custom `release:version` script.
 
     ```sh
     git commit -a -m "Bump package version" && git push
-    npm run release:publish
+    npm --prefix=packages/video run release:publish
     ```
 
 
