@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import MenuLink from "../MenuLink";
-import styles from "./TrackSlider.scss";
+import styles from "./TrackSlider.module.scss";
 
 const toMMSS = (secondsRaw) => {
   var secs = parseInt(secondsRaw, 10);
@@ -28,6 +28,11 @@ const TrackSlider = ({
   onSeeking,
   onSeeked,
   artist = {},
+  color = '#00ff2a',
+  hideTime = false,
+  hideVolume = false,
+  playButton = 'Play',
+  pauseButton = 'Pause',
 }) => {
   const [hovered, setHovered] = useState(false);
 
@@ -36,9 +41,11 @@ const TrackSlider = ({
   return (
     <div className={styles["g-track-slider"]}>
       <div className={styles["g-slider-container"]}>
-        <MenuLink disableLink active={hovered}>
-          {toMMSS(currentTime)}
-        </MenuLink>
+        {!hideTime && (
+          <MenuLink disableLink active={hovered}>
+            {toMMSS(currentTime)}
+          </MenuLink>
+        )}
         <input
           type="range"
           min={0}
@@ -52,27 +59,32 @@ const TrackSlider = ({
             onSeeked(e.target.value);
             setHovered(false);
           }}
+          {...{ 'data-color': color }}
         />
-        <MenuLink disableLink active={hovered}>
-          {toMMSS(duration)}
-        </MenuLink>
+        {!hideTime && (
+          <MenuLink disableLink active={hovered}>
+            {toMMSS(duration)}
+          </MenuLink>
+        )}
       </div>
       <div className={styles["g-slider-btns"]}>
-        <div className={styles["g-slider-volumes"]}>
-          <MenuLink muteHover onClick={onVolumeDown} audioName={artist.name}>
-            V-
-          </MenuLink>
-          <MenuLink muteHover onClick={onVolumeUp} audioName={artist.name}>
-            V+
-          </MenuLink>
-        </div>
+        {!hideVolume && (
+          <div className={styles["g-slider-volumes"]}>
+            <MenuLink muteHover onClick={onVolumeDown} audioName={artist.name}>
+              V-
+            </MenuLink>
+            <MenuLink muteHover onClick={onVolumeUp} audioName={artist.name}>
+              V+
+            </MenuLink>
+          </div>
+        )}
         <MenuLink
           muteHover
           onClick={onTogglePlay}
           className={styles["g-slider-toggle"]}
           audioName={artist.name}
         >
-          {playing ? "Pause" : "Play"}
+          {playing ? pauseButton : playButton}
         </MenuLink>
       </div>
     </div>

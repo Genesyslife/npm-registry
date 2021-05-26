@@ -1,0 +1,17 @@
+.g-video {
+  width: 100vw;
+  height: 300px;
+  background-color: red;
+}
+
+.safari-video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.safari-video video {
+  width: 90%;
+  max-height: 80%;
+}
+

@@ -21,7 +21,7 @@
   "peerDependencies": {
     "react": ">=16.14.0",
     "react-dom": ">=16.14.0",
-    "three": ">=0.128.0"
+    "three": "0.128.0"
   },
   "devDependencies": {
     "@babel/core": "7.14.0",

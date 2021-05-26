@@ -7,7 +7,13 @@ export default {
   component: Video,
 };
 
-const Template = (args) => <Video {...args} />;
+const Template = (args) => (
+  <Video
+    src="https://guigallo.s3-sa-east-1.amazonaws.com/PINDORAMA_LEGENDA+INGLES.mp4"
+    sizes={[16, 9]}
+    {...args}
+  />
+);
 
 export const Basic = Template.bind({});
 Basic.args = {};

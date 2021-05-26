@@ -11,7 +11,15 @@ const meterColor = [
 const menuVH = 25;
 const spectrumPercent = (100 - menuVH * 2) / 100;
 
-export default function AudioVisualizer({ id = 1, src, color }) {
+export default function AudioVisualizer({
+  id = 1,
+  src,
+  color,
+  hideTime,
+  hideVolume,
+  playButton,
+  pauseButton,
+}) {
   const [height, setHeight] = useState(0);
   const [width, setWidth] = useState(0);
   const audioPlayer = useRef(null);
@@ -96,6 +104,10 @@ export default function AudioVisualizer({ id = 1, src, color }) {
         onSeeking={onSeeking}
         onSeeked={onSeeked}
         artist={{}}
+        hideTime={hideTime}
+        hideVolume={hideVolume}
+        playButton={playButton}
+        pauseButton={pauseButton}
       />
 
       {!isSafari && (

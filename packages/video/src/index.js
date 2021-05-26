@@ -1,17 +1,17 @@
 import React, {
-  // Suspense,
+  Suspense,
   useCallback,
   useEffect,
-  // useMemo,
+  useMemo,
   useRef,
   useState,
 } from "react";
-// import {VideoTexture, LinearFilter, DoubleSide} from "three";
-// import { Canvas } from "@react-three/fiber";
-// import { OrbitControls, Plane, Html } from "@react-three/drei";
+import {VideoTexture, LinearFilter, DoubleSide} from "three";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, Html } from "@react-three/drei";
 import { isMobileSafari } from "react-device-detect";
 import TrackSlider from "./components/TrackSlider";
-// import styles from "./Video.scss";
+import styles from "./Video.module.scss";
 
 const SafariFallback = ({ video, loading }) => {
   const divVideo = useRef(null);
@@ -24,64 +24,61 @@ const SafariFallback = ({ video, loading }) => {
 
   // if (loading) return <Loader centerScreen />
   if (loading) return <div>Loading…</div>;
-  // return <div ref={divVideo} className={styles["safari-video"]} />;
-
-  return null;
+  return <div ref={divVideo} className={styles["safari-video"]} />;
 };
 
-const Video3d = (/* { video, sizes, loading } */) => {
-  // const texture = useMemo(() => {
-  //   const videoElement = video.current;
-  //   if (!videoElement) return false;
+const Video3d = ({ video, sizes, loading }) => {
+  const texture = useMemo(() => {
+    const videoElement = video.current;
+    if (!videoElement) return false;
 
-  //   const newTexture = new VideoTexture(videoElement);
-  //   newTexture.minFilter = LinearFilter;
-  //   newTexture.magFilter = LinearFilter;
+    const newTexture = new VideoTexture(videoElement);
+    newTexture.minFilter = LinearFilter;
+    newTexture.magFilter = LinearFilter;
 
-  //   return newTexture;
-  // }, [video]);
+    return newTexture;
+  }, [video]);
 
-  return null;
-
-  // return (
-  //   <Suspense fallback={null}>
-  //     <Canvas
-  //       id="canvas-video"
-  //       className={styles["g-video"]}
-  //       camera={{ aspect: window.innerWidth / window.innerHeight }}
-  //     >
-  //       <OrbitControls
-  //         minPolarAngle={0.5}
-  //         maxPolarAngle={2.5}
-  //         minAzimuthAngle={-Math.PI * 0.4}
-  //         maxAzimuthAngle={Math.PI * 0.4}
-  //         rotateSpeed={0.2}
-  //         zoomSpeed={0.2}
-  //         minDistance={1}
-  //         maxDistance={5}
-  //       />
-  //       {texture && (
-  //         <Plane args={[...sizes, 0.1]} rotate={[0, 1, 0]}>
-  //           <meshBasicMaterial
-  //             side={DoubleSide}
-  //             attach="material"
-  //             map={texture}
-  //             color="#fff"
-  //           ></meshBasicMaterial>
-  //         </Plane>
-  //       )}
-  //       {loading && (
-  //         <Html center>
-  //           {/* <Loader /> */}
-  //           <div>Loading…</div>
-  //         </Html>
-  //       )}
-  //     </Canvas>
-  //   </Suspense>
-  // );
+  return (
+    <Suspense fallback={null}>
+      <Canvas
+        // className={styles["g-video"]}
+        camera={{ aspect: window.innerWidth / window.innerHeight }}
+        style={{ height: '100vh', width: '100vw' }}
+      >
+        <OrbitControls
+          minPolarAngle={0.5}
+          maxPolarAngle={2.5}
+          minAzimuthAngle={-Math.PI * 0.4}
+          maxAzimuthAngle={Math.PI * 0.4}
+          rotateSpeed={0.2}
+          zoomSpeed={0.2}
+          minDistance={1}
+          maxDistance={5}
+        />
+        <mesh>
+          <planeGeometry args={[...sizes, 1]} attach="geometry" />
+          <meshBasicMaterial
+            attach="material"
+            color="#fff"
+            map={texture}
+            //side={DoubleSide}
+          />
+          {/**
+          <meshBasicMaterial
+            attach="material"
+            color="#fff"
+            map={texture}
+            //side={DoubleSide}
+          />
+          **/}
+        </mesh>
+      </Canvas>
+    </Suspense>
+  );
 };
 
-export default function Video({ src, artist = {}, sizes = [] }) {
+export default function Video({ src, artist = {}, sizes = [5, 5] }) {
   const video = useRef(document.createElement("video"));
   const [currentTime, setCurrentTime] = useState(0);
   const [seeking, setSeeking] = useState(false);
@@ -178,12 +175,6 @@ export default function Video({ src, artist = {}, sizes = [] }) {
 
   return (
     <>
-      {isMobileSafari ? (
-        <SafariFallback video={video} />
-      ) : (
-        <Video3d video={video} sizes={sizes} loading={loading} />
-      )}
-
       <TrackSlider
         currentTime={currentTime}
         duration={duration}
@@ -195,6 +186,12 @@ export default function Video({ src, artist = {}, sizes = [] }) {
         onSeeked={onSeeked}
         artist={artist}
       />
-    </>
+
+      {isMobileSafari ? (
+        <SafariFallback video={video} />
+      ) : (
+        <Video3d video={video} sizes={sizes} loading={loading} />
+      )}
+   </>
   );
 }
