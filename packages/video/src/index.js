@@ -6,9 +6,9 @@ import React, {
   useRef,
   useState,
 } from "react";
-import {VideoTexture, LinearFilter, DoubleSide} from "three";
+import { VideoTexture, LinearFilter } from "three";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Html } from "@react-three/drei";
+import { OrbitControls } from "@react-three/drei";
 import { isMobileSafari } from "react-device-detect";
 import TrackSlider from "./components/TrackSlider";
 import styles from "./Video.module.scss";
@@ -27,7 +27,7 @@ const SafariFallback = ({ video, loading }) => {
   return <div ref={divVideo} className={styles["safari-video"]} />;
 };
 
-const Video3d = ({ video, sizes, loading }) => {
+const Video3d = ({ video, sizes }) => {
   const texture = useMemo(() => {
     const videoElement = video.current;
     if (!videoElement) return false;
@@ -44,7 +44,7 @@ const Video3d = ({ video, sizes, loading }) => {
       <Canvas
         // className={styles["g-video"]}
         camera={{ aspect: window.innerWidth / window.innerHeight }}
-        style={{ height: '100vh', width: '100vw' }}
+        style={{ height: "100vh", width: "100vw" }}
       >
         <OrbitControls
           minPolarAngle={0.5}
@@ -192,6 +192,6 @@ export default function Video({ src, artist = {}, sizes = [5, 5] }) {
       ) : (
         <Video3d video={video} sizes={sizes} loading={loading} />
       )}
-   </>
+    </>
   );
 }
