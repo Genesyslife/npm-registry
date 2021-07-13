@@ -7,7 +7,10 @@
   },
   "dependencies": {
     "@Genesys/audio-visualizer": "file:../packages/audio-visualizer",
+    "@Genesys/rtf-fps-player": "file:../packages/rtf-fps-player",
     "@Genesys/video": "file:../packages/video",
+    "@react-three/cannon": "2.5.0",
+    "@react-three/fiber": "7.0.4",
     "@storybook/addon-actions": "6.2.9",
     "@storybook/addon-essentials": "6.2.9",
     "@storybook/addon-links": "6.2.9",
