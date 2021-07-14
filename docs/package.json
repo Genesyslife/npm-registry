@@ -9,15 +9,13 @@
     "@Genesys/audio-visualizer": "file:../packages/audio-visualizer",
     "@Genesys/rtf-fps-player": "file:../packages/rtf-fps-player",
     "@Genesys/video": "file:../packages/video",
-    "@react-three/cannon": "2.1.2",
-    "@react-three/fiber": "6.1.5",
     "@storybook/addon-actions": "6.3.4",
     "@storybook/addon-essentials": "6.3.4",
     "@storybook/addon-links": "6.3.4",
     "@storybook/react": "6.3.4",
-    "react": "17.0.0",
-    "react-dom": "17.0.0",
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
     "storybook-dark-mode": "1.0.8",
-    "three": "0.128.0"
+    "three": "0.130.0"
   }
 }
