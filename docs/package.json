@@ -7,14 +7,18 @@
   },
   "dependencies": {
     "@Genesys/audio-visualizer": "file:../packages/audio-visualizer",
+    "@Genesys/rtf-fps-player": "file:../packages/rtf-fps-player",
     "@Genesys/video": "file:../packages/video",
-    "@storybook/addon-actions": "6.2.9",
-    "@storybook/addon-essentials": "6.2.9",
-    "@storybook/addon-links": "6.2.9",
-    "@storybook/react": "6.2.9",
+    "@react-three/cannon": "2.5.0",
+    "@react-three/drei": "7.1.1",
+    "@react-three/fiber": "7.0.5",
+    "@storybook/addon-actions": "6.3.4",
+    "@storybook/addon-essentials": "6.3.4",
+    "@storybook/addon-links": "6.3.4",
+    "@storybook/react": "6.3.4",
     "react": "16.14.0",
     "react-dom": "16.14.0",
     "storybook-dark-mode": "1.0.8",
-    "three": "0.128.0"
+    "three": "0.130.1"
   }
 }
