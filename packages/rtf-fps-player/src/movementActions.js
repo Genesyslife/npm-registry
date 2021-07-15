@@ -3,7 +3,7 @@ const MovementActions = {
   BACKWARD: "backward",
   LEFT: "left",
   RIGHT: "right",
-  JUMP: "jump"
-}
+  JUMP: "jump",
+};
 
-export default MovementActions
+export default MovementActions;

@@ -1,12 +1,13 @@
-import create from 'zustand'
-import produce from 'immer'
+import create from "zustand";
+import produce from "immer";
 
 export const useStore = create((set) => {
-  const setState = (fn) => set(produce(fn))
+  const setState = (fn) => set(produce(fn));
 
   const initialState = {
     player: {
       enabled: true,
+      lockCursor: false,
     },
     movement: {
       forward: false,
@@ -15,26 +16,24 @@ export const useStore = create((set) => {
       right: false,
       jump: false,
     },
-  }
+  };
 
   return {
     state: initialState,
     actions: {
-      // game
       reset: () => {
-        set({ state: { ...initialState } })
+        set({ state: { ...initialState } });
       },
-      init: () => {
+      setLockCursor: (value) => {
         setState(({ state }) => {
-          state.game.mouse = true
-          state.game.muted = false
-        })
+          state.player.lockCursor = value;
+        });
       },
       onMove: (direction, value) => {
         setState(({ state }) => {
-          state.movement[direction] = value
-        })
+          state.movement[direction] = value;
+        });
       },
     },
-  }
-})
+  };
+});

@@ -1,11 +1,11 @@
-import MovementActions from './movementActions'
+import MovementActions from "./movementActions";
 
 const keyBindings = {
-  "KeyW": MovementActions.FORWARD,
-  "KeyS": MovementActions.BACKWARD,
-  "KeyA": MovementActions.LEFT,
-  "KeyD": MovementActions.RIGHT,
-  "Space": MovementActions.JUMP,
-}
+  KeyW: MovementActions.FORWARD,
+  KeyS: MovementActions.BACKWARD,
+  KeyA: MovementActions.LEFT,
+  KeyD: MovementActions.RIGHT,
+  Space: MovementActions.JUMP,
+};
 
-export default keyBindings
+export default keyBindings;

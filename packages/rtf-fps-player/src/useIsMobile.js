@@ -1,14 +1,14 @@
-import { useEffect, useState } from 'react'
-import { isMobile as isMobileDetect } from 'react-device-detect'
+import { useEffect, useState } from "react";
+import { isMobile as isMobileDetect } from "react-device-detect";
 
 const useIsMobile = () => {
-  const [isMobile, setMobile] = useState(false)
+  const [isMobile, setMobile] = useState(false);
 
   useEffect(() => {
-    setMobile(isMobileDetect)
-  }, [])
+    setMobile(isMobileDetect);
+  }, []);
 
-  return isMobile
-}
+  return isMobile;
+};
 
-export default useIsMobile
+export default useIsMobile;
